@@ -17,34 +17,47 @@
 
     <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
+    <style>
+        /* Fix content sliding under header */
+        .page-content {
+            margin-top: 160px; /* adjust if header height changes */
+        }
+    </style>
 </head>
+
 <body>
 
     <!-- Fixed Header Start -->
-<div id="fixed-header">
-    @include('page-components.topbar')
+    <div id="fixed-header">
+        @include('page-components.topbar')
 
-    <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
-        <a href="{{ route('guest') }}" class="text-decoration-none d-block d-lg-none">
-            <h1 class="m-0 display-5 font-weight-semi-bold">
-                <span class="text-warning font-weight-bold border px-3 mr-1">B</span>BookNest
-            </h1>
-        </a>
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+            <a href="{{ route('guest') }}" class="text-decoration-none d-block d-lg-none">
+                <h1 class="m-0 display-5 font-weight-semi-bold">
+                    <span class="text-warning font-weight-bold border px-3 mr-1">B</span>BookNest
+                </h1>
+            </a>
 
-        @include('page-components.main-menu')
-    </nav>
-</div>
-<!-- Fixed Header End -->
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            @include('page-components.main-menu')
+        </nav>
+    </div>
+    <!-- Fixed Header End -->
 
 
-    {{-- Page Content --}}
-    @yield('content')
+    <!-- Page Content -->
+    <div class="page-content">
+        @yield('content')
+    </div>
 
-    {{-- Footer --}}
+
+    <!-- Footer -->
     @include('page-components.footer')
+
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

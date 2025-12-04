@@ -26,7 +26,7 @@
 
       
     </head>
-    <body>
+    <body class="{{ request()->is('/') ? 'no-padding' : 'with-padding' }}">
 			@include('page-components.topbar')
 			@include('page-components.navbar')
 			@include('page-components.newlaunched')

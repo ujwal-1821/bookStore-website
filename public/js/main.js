@@ -100,5 +100,22 @@
         button.parent().parent().find('input').val(newVal);
     });
     
+
+    $(".testimonial-carousel").owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        dots: true,
+        responsive:{
+            0:{ items:1 },
+            768:{ items:2 },
+            1000:{ items:3 }
+        }
+    });
+
+
+    
 })(jQuery);
 
