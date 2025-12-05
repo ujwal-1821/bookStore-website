@@ -69,9 +69,9 @@
                         <div class="navbar-nav ml-auto py-0">
                             @auth
                                 @if (Auth::user()->user_type === "admin")
-                                    <a href="{{ route('admin.dashboard') }}" class="bg-warning nav-item nav-link border border-primary p-2">Admin Panel</a>
+                                    <a href="{{ route('dashboard') }}" class="bg-warning nav-item nav-link border border-primary p-2">Admin Panel</a>
                                 @else
-                                    <a href="{{ route('user.dashboard') }}" class="bg-warning nav-item nav-link border border-primary p-2">My Dashboard</a>
+                                    <a href="{{ route('dashboard') }}" class="bg-warning nav-item nav-link border border-primary p-2">My Dashboard</a>
                                 @endif
                             @else
                                 <a href="{{ route('login') }}" class="nav-item nav-link border border-primary p-2">Login</a>

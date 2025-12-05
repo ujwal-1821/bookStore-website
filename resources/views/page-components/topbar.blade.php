@@ -75,13 +75,13 @@
             @if (Route::has('login'))
                 @auth
                     @if (Auth::user()->user_type === "admin")
-                        <a href="{{ route('admin.dashboard') }}" class="btn bg-warning border rounded-circle">
+                        <a href="{{ route('dashboard') }}" class="btn bg-warning border rounded-circle">
                             <span class="text-uppercase fw-bold text-dark">
                                 {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
                             </span>
                         </a>
                     @else
-                        <a href="{{ route('user.dashboard') }}" class="btn bg-warning border rounded-circle">
+                        <a href="{{ route('dashboard') }}" class="btn bg-warning border rounded-circle">
                             <span class="text-uppercase fw-bold text-dark">
                                 {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
                             </span>
