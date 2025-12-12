@@ -1,52 +1,146 @@
 <x-guest-layout>
+
+<style>
+    body {
+        background: linear-gradient(to right, #1f0c4d, #5b21b6, #7c3aed);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .container {
+        max-width: 450px;
+        margin: 70px auto;
+        background: rgba(255,255,255,0.95);
+        padding: 30px 35px;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    }
+
+    .logo-area {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+
+    .logo-box {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo-icon {
+        background: #ffca28;
+        padding: 2px 13px;
+        border-radius: 10px;
+        color: #1a237e;
+        font-size: 26px;
+        font-weight: 800;
+    }
+
+    .logo-text {
+        font-size: 32px;
+        font-weight: 700;
+        color: white;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        color: #1a237e;
+        margin-bottom: 25px;
+        font-weight: 800;
+        letter-spacing: 2px;
+    }
+
+    label {
+        font-size: 14px;
+        font-weight: bold;
+        margin-bottom: 6px;
+        display: block;
+        color: #333;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #bbb;
+        background: #f7f7f7;
+        font-size: 14px;
+        margin-bottom: 20px;
+        transition: all 0.2s ease;
+    }
+
+    input:focus {
+        background: #fff;
+        border-color: #5b21b6;
+        box-shadow: 0 0 5px rgba(90,20,200,0.4);
+        outline: none;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px;
+        border-radius: 50px;
+        background: white;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        font-size: 17px;
+        font-weight: bold;
+        transition: 0.2s;
+    }
+
+    .btn:hover {
+        background: #f0f0f0;
+    }
+
+    .login-link {
+        text-align: center;
+        margin-top: 10px;
+        font-size: 14px;
+        color: black;
+    }
+
+    .login-link a {
+        color: red;
+        text-decoration: underline;
+    }
+</style>
+
+<!-- Logo -->
+<!-- <div class="logo-area">
+    <div class="logo-box">
+        <div class="logo-icon">FB</div>
+        <div class="logo-text">FreeBook</div>
+    </div>
+</div> -->
+
+<!-- Form card -->
+<div class="container-fluid">
+
+    <h2><span class="logo-icon">FreeBooks</span> REGISTRATION</h2>
+
     <form method="POST" action="{{ route('register') }}">
         @csrf
 
-        <!-- Name -->
-        <div>
-            <x-input-label for="name" :value="__('Name')" />
-            <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
-            <x-input-error :messages="$errors->get('name')" class="mt-2" />
-        </div>
+        <label>Full Name:</label>
+        <input type="text" name="name" placeholder="Full Name" required>
 
-        <!-- Email Address -->
-        <div class="mt-4">
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="Email" required>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Password" required>
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="new-password" />
+        <label>Confirm Password:</label>
+        <input type="password" name="password_confirmation" placeholder="Confirm Password" required>
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                            type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
-            </a>
-
-            <x-primary-button class="ms-4">
-                {{ __('Register') }}
-            </x-primary-button>
-        </div>
+        <button type="submit" class="btn">Register</button>
     </form>
+
+    <p class="login-link">
+        Already registered?
+        <a href="{{ route('login') }}">Login</a>
+    </p>
+
+</div>
+
 </x-guest-layout>
