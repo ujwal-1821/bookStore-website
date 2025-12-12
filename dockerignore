@@ -1,0 +1,8 @@
+node_modules
+vendor
+.git
+.env
+storage
+bootstrap/cache
+npm-debug.log
+.DS_Store
