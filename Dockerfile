@@ -17,10 +17,13 @@ RUN apt-get update && apt-get install -y \
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
-COPY composer.json composer.lock ./
+
+# Copy entire app FIRST so artisan exists
+COPY . /var/www/html
+
+# Install composer dependencies AFTER code is present
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
-COPY . /var/www/html
 
 # copy built frontend output from node stage
 COPY --from=node-build /app/public /var/www/html/public
